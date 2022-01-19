@@ -1,4 +1,4 @@
-import { Install } from "./Install/Install";
+import { Install } from "../Install/Install";
 import { WalletBalance } from "../../components/WalletBalance/WalletBalance";
 
 export const Home = () => {
