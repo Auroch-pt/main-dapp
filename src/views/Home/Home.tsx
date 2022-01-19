@@ -9,7 +9,6 @@ export const Home = () => {
       {window.ethereum ? <WalletBalance /> : <Install />}
       <Routes>
         <Route index element={<Projects />} />
-        <Route path="projects" element={<Projects />} />
       </Routes>
     </div>
   );
