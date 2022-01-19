@@ -1,5 +1,5 @@
-import { Install } from "./components/Install/Install";
-import { Home } from "./components/Home/Home";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./views/Home/Home";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 
 declare global {
@@ -9,11 +9,11 @@ declare global {
 }
 
 function App() {
-  if (window.ethereum) {
-    return <Home />;
-  } else {
-    return <Install />;
-  }
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  );
 }
 
 export default App;
