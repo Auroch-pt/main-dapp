@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, Link } from "react-router-dom";
 import { Issues } from "../Issues/Issues";
 import { Issue } from "../Issue/Issue";
 
@@ -7,7 +7,7 @@ export const Project = () => {
 
   return (
     <div>
-      {projectName}
+      <Link to={`/${projectName}`}>{projectName}</Link>
       <Routes>
         <Route index element={<Issues />} />
         <Route path="issues" element={<Issues />} />
