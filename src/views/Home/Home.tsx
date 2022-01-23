@@ -1,12 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-/* import { Install } from "../Install/Install";
-import { WalletBalance } from "../../components/WalletBalance/WalletBalance"; */
+import { useAuth } from "../../contexts/auth";
+/* import { Install } from "../Install/Install"; */
+import { WalletBalance } from "../../components/WalletBalance/WalletBalance";
 import { Projects } from "../Projects/Projects";
 
 export const Home = () => {
+  const { isConnected } = useAuth();
   return (
     <div>
-      {/*{window.ethereum ? <WalletBalance /> : <Install />}*/}
+      {isConnected && <WalletBalance />}
       <Routes>
         <Route index element={<Projects />} />
       </Routes>
