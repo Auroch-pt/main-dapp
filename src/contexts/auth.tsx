@@ -26,6 +26,7 @@ export const AuthProvider: FC = ({ children }) => {
   };
 
   const handleDisconnect = async () => {
+    localStorage.removeItem("address");
     setIsconected(false);
     setWalletAccount("");
   };
