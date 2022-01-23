@@ -1,8 +1,8 @@
 overwrite: true
 schema:
-  - ${HASURA_ENDPOINT}:
+  - ${VITE_HASURA_ENDPOINT}:
       headers:
-        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
+        x-hasura-admin-secret: ${VITE_HASURA_ADMIN_SECRET}
 documents: "src/graphql/**/*.graphql"
 generates:
   src/graphql/graphql.tsx:
