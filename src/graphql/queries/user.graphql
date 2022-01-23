@@ -1,0 +1,8 @@
+query getUser($address: String!) {
+  user(address: $address) {
+    address
+    createdAt
+    nickname
+    updatedAt
+  }
+}

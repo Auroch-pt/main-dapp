@@ -1,0 +1,11 @@
+mutation createUser($address: String!) {
+  insertUser(
+    object: { address: $address, nickname: $address }
+    on_conflict: { constraint: users_pkey, update_columns: updatedAt }
+  ) {
+    address
+    createdAt
+    nickname
+    updatedAt
+  }
+}
