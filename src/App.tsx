@@ -6,6 +6,8 @@ import { Project } from "./views/Project/Project";
 import { Header } from "./components/Header/Header";
 import { Projects } from "./views/Projects/Projects";
 import { AuthProvider } from "./contexts/auth";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import { Profile } from "./views/Profile/Profile";
 
 declare global {
   interface Window {
@@ -22,6 +24,14 @@ function App() {
           <Route path="/*" element={<Home />} />
           <Route path="projects" element={<Projects />} />
           <Route path=":projectName/*" element={<Project />} />
+          <Route
+            path="profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>

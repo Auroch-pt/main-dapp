@@ -12,5 +12,3 @@ typechain
 #Hardhat files
 cache
 artifacts
-
-src/graphql/graphql.tsx
