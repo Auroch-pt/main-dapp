@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import { ProjectsList, Header } from "./Components";
-import { Home, Projects, Project } from "./Pages";
+import { Home, Projects, Project, NotFound } from "./Pages";
 
 function App() {
     const breadcrumbs = useBreadcrumbs();
@@ -9,10 +9,10 @@ function App() {
     return (
         <div>
             <Header />
-            {breadcrumbs.map(({ breadcrumb, match }) => (
-                <span key={match.pathname} style={{ marginLeft: "1em" }}>
-                    <Link to={match.pathname}>⁄{breadcrumb}</Link>
-                </span>
+            {breadcrumbs.map(({ breadcrumb, match }, index) => (
+                <Link key={match.pathname} to={match.pathname}>
+                    {breadcrumb} {index !== breadcrumbs.length - 1 && " / "}
+                </Link>
             ))}
             <Routes>
                 <Route index element={<Home />} />
@@ -20,6 +20,7 @@ function App() {
                     <Route index element={<ProjectsList />} />
                     <Route path=":id" element={<Project />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
     );
